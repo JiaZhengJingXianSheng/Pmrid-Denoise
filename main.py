@@ -19,8 +19,9 @@ NoisyFiles = os.listdir(noisy_data_path)
 OriginFiles = os.listdir(origin_data_path)
 NoisyFiles_len = len(NoisyFiles)
 device = "cuda:0"
-lr = 0.00001
-loss = nn.L1Loss()
+lr = 0.0001
+loss1 = nn.L1Loss()
+loss2 = nn.MSELoss()
 epochs = 200
 
 
@@ -67,7 +68,9 @@ if __name__ == "__main__":
             optimizer.zero_grad()
 
             Y_HAT = net(X)
-            l = loss(Y_HAT, Y)
+            l1 = loss1(Y_HAT, Y)
+            l2 = loss2(Y_HAT, Y)
+            l = l1 + l2
             l.backward()
             optimizer.step()
 
