@@ -22,8 +22,8 @@ device = "cuda:1"
 lr = 0.0001
 loss1 = nn.L1Loss()
 loss2 = nn.MSELoss()
-epochs = 100
-model_path = "Big-Pmrid-29.pth"
+epochs = 200
+model_path = "Pmrid-90.pth"
 
 
 def read_image(input_path):
