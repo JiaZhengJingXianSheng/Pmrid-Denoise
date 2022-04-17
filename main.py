@@ -22,7 +22,8 @@ device = "cuda:1"
 lr = 0.0001
 loss1 = nn.L1Loss()
 loss2 = nn.MSELoss()
-epochs = 30
+epochs = 100
+model_path = "Big-Pmrid-29.pth"
 
 
 def read_image(input_path):
@@ -54,6 +55,7 @@ def pre(input_path):
 
 if __name__ == "__main__":
     net = PMRID()
+    net.load_state_dict(torch.load(model_path))
 
     optimizer = torch.optim.Adam(net.parameters(), lr=lr)
     net.to(device)
