@@ -5,6 +5,12 @@ __pycache__/
 
 # C extensions
 *.so
+*.idea
+.iml
+/testset
+testset/
+/dataset
+dataset/
 
 # Distribution / packaging
 .Python
