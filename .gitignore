@@ -13,7 +13,10 @@ testset/
 dataset/
 models/
 /models
-
+tem/
+/tem
+/result
+result/
 
 # Distribution / packaging
 .Python
