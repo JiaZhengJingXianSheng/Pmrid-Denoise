@@ -22,7 +22,7 @@ device = "cuda:0"
 lr = 0.0001
 loss1 = nn.L1Loss()
 loss2 = nn.MSELoss()
-epochs = 200
+epochs = 30
 
 
 def read_image(input_path):
@@ -77,4 +77,4 @@ if __name__ == "__main__":
             running_loss += l.item()
         print("Epoch{}\tloss {}".format(epoch,running_loss/NoisyFiles_len))
 
-        torch.save(net.state_dict(), 'models/BaseLine-' + str(epoch) + '.pth')
+        torch.save(net.state_dict(), 'models/Prmid-' + str(epoch) + '.pth')

@@ -149,11 +149,12 @@ class PMRID(nn.Module):
         self.out0 = DecoderBlock(in_channels=16, out_channels=16, kernel_size=3)
         self.out1 = Conv2D(in_channels=16, out_channels=4, kernel_size=3, stride=1, padding=1, is_seperable=False, has_relu=False)
 
-    def forward(self, x):
-        n, c, h, w = x.shape
-        h_pad = 32 - h % 32 if not h % 32 == 0 else 0
-        w_pad = 32 - w % 32 if not w % 32 == 0 else 0
-        padded_image = F.pad(x, (0, w_pad, 0, h_pad), 'replicate')
+    def forward(self, inp):
+        n, c, h, w = inp.shape
+        h_pad = 16 - h % 16 if not h % 16 == 0 else 0
+        w_pad = 16 - w % 16 if not w % 16 == 0 else 0
+        padded_image = F.pad(inp, (0, w_pad, 0, h_pad), 'replicate')
+        # padded_image = F.pad(x, (0, w_pad, 0, h_pad), 'constant')
 
         conv0 = self.conv0(padded_image)
         conv1 = self.enc1(conv0)
@@ -170,6 +171,6 @@ class PMRID(nn.Module):
 
         x = self.out0(x)
         x = self.out1(x)
-
+        x = x[:,:,:h,:w]
         pred = inp + x
         return pred
