@@ -54,7 +54,7 @@ def pre(input_path):
 
 if __name__ == "__main__":
     net = PMRID()
-    net.load_state_dict(torch.load("model.pth"))
+
     optimizer = torch.optim.Adam(net.parameters(), lr=lr)
     net.to(device)
 
