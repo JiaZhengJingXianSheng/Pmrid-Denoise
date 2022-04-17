@@ -18,7 +18,7 @@ origin_data_path = "dataset/ground_truth/"
 NoisyFiles = os.listdir(noisy_data_path)
 OriginFiles = os.listdir(origin_data_path)
 NoisyFiles_len = len(NoisyFiles)
-device = "cuda:0"
+device = "cuda:1"
 lr = 0.0001
 loss1 = nn.L1Loss()
 loss2 = nn.MSELoss()
@@ -77,4 +77,4 @@ if __name__ == "__main__":
             running_loss += l.item()
         print("Epoch{}\tloss {}".format(epoch,running_loss/NoisyFiles_len))
 
-        torch.save(net.state_dict(), 'models/Prmid-' + str(epoch) + '.pth')
+        torch.save(net.state_dict(), 'models/Pmrid-' + str(epoch) + '.pth')

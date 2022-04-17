@@ -135,10 +135,10 @@ class PMRID(nn.Module):
 
 
         self.conv0 = Conv2D(in_channels=4, out_channels=16, kernel_size=3, padding=1, stride=1, is_seperable=False, has_relu=True)
-        self.enc1 = EncoderStage(in_channels=16, out_channels=64, num_blocks=2)
-        self.enc2 = EncoderStage(in_channels=64, out_channels=128, num_blocks=2)
-        self.enc3 = EncoderStage(in_channels=128, out_channels=256, num_blocks=4)
-        self.enc4 = EncoderStage(in_channels=256, out_channels=512, num_blocks=4)
+        self.enc1 = EncoderStage(in_channels=16, out_channels=64, num_blocks=4)
+        self.enc2 = EncoderStage(in_channels=64, out_channels=128, num_blocks=4)
+        self.enc3 = EncoderStage(in_channels=128, out_channels=256, num_blocks=8)
+        self.enc4 = EncoderStage(in_channels=256, out_channels=512, num_blocks=8)
 
         self.encdec = Conv2D(in_channels=512, out_channels=64, kernel_size=3, padding=1, stride=1, is_seperable=True, has_relu=True)
         self.dec1 = DecoderStage(in_channels=64, skip_in_channels=256, out_channels=64)

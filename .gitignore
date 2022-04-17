@@ -11,6 +11,9 @@ __pycache__/
 testset/
 /dataset
 dataset/
+models/
+/models
+
 
 # Distribution / packaging
 .Python
