@@ -10,15 +10,15 @@ import os
 import rawpy
 import numpy as np
 import torch
-from PrmidNetOrigin import PMRID
-# from PmridNet import PMRID
+
+from PmridNet import PMRID
 from matplotlib import pyplot as plt
 import skimage
-noisy_path = "dataset/noisy/1_noise.dng"
-gt_path = "dataset/ground_truth/1_gt.dng"
-output_path = "tem/1_noise.dng"
-# model_path = "Big-Pmrid-29.pth"
-model_path = "Pmrid-28.pth"
+noisy_path = "dataset/noisy/0_noise.dng"
+gt_path = "dataset/ground_truth/0_gt.dng"
+output_path = "tem/0_noise.dng"
+model_path = "Pmrid-290.pth"
+
 # device = "cuda:0"
 device = "cpu"
 white_level = 16383
@@ -132,6 +132,12 @@ if __name__ == "__main__":
     print('psnr:', psnr)
     print('ssim:', ssim)
 
+    with open("log.txt", 'a+')as f:
+        f.writelines("-------------------\n")
+        f.writelines("model name: " + str(model_path) + "\n")
+        f.writelines("psnr: " + str(psnr) + "\n")
+        f.writelines("ssim: " + str(ssim) + "\n")
+        f.writelines("\n\n")
     """
     Example: this demo_code shows your input or gt or result image
     """
