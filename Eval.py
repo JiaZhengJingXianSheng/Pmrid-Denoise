@@ -16,7 +16,7 @@ import skimage
 noisy_path = "dataset/noisy/0_noise.dng"
 gt_path = "dataset/ground_truth/0_gt.dng"
 output_path = "tem/0_noise.dng"
-model_path = "Pmrid-90.pth"
+model_path = "Pmrid-290.pth"
 # device = "cuda:0"
 device = "cpu"
 white_level = 16383

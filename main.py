@@ -23,8 +23,7 @@ lr = 0.0001
 loss1 = nn.L1Loss()
 loss2 = nn.MSELoss()
 epochs = 200
-model_path = "Pmrid-90.pth"
-
+model_path = "Pmrid-290.pth"
 
 def read_image(input_path):
     raw = rawpy.imread(input_path)
@@ -57,7 +56,7 @@ if __name__ == "__main__":
     net = PMRID()
     net.load_state_dict(torch.load(model_path))
 
-    optimizer = torch.optim.Adam(net.parameters(), lr=lr)
+    optimizer = torch.optim.SGD(net.parameters(), lr=lr)
     net.to(device)
 
     net.train()
