@@ -11,12 +11,14 @@ import rawpy
 import numpy as np
 import torch
 from PrmidNetOrigin import PMRID
+# from PmridNet import PMRID
 from matplotlib import pyplot as plt
 import skimage
-noisy_path = "dataset/noisy/0_noise.dng"
-gt_path = "dataset\ground_truth/0_gt.dng"
-output_path = "tem/0_noise.dng"
-model_path = "pmrid-28.pth"
+noisy_path = "dataset/noisy/1_noise.dng"
+gt_path = "dataset/ground_truth/1_gt.dng"
+output_path = "tem/1_noise.dng"
+# model_path = "Big-Pmrid-29.pth"
+model_path = "Pmrid-28.pth"
 # device = "cuda:0"
 device = "cpu"
 white_level = 16383
