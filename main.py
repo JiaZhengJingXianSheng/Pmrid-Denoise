@@ -63,10 +63,10 @@ if __name__ == "__main__":
 
     optimizer = torch.optim.SGD(net.parameters(), lr=lr)
     net.to(device)
-    # net.train()
+    net.train()
 
     for epoch in range(epochs):
-        net.train()
+        # net.train()
         running_loss = 0.0
         for i in range(NoisyFiles_len):
             X, X_height, X_width = pre(input_path=noisy_data_path + str(i) + "_noise.dng")
